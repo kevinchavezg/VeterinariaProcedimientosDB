@@ -22,7 +22,7 @@ create table mascotas (
     nPatas int not null,
     estatura float not null,
     id_cliente int not null,
-    foreign key id_cliente references idCliente on clientes
+    foreign key (id_cliente) references clientes(idCliente)
 );
 
 create table mascota_servicio (
