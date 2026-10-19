@@ -155,3 +155,65 @@ BEGIN
     WHERE activo = 1;
 END $$
 DELIMITER ;
+
+
+-- Ejecucion de prueba
+
+-- Procedimiento 1
+Call InsertarCliente('Kevin Chavez', 'Cidudad de Guatemala', 'kevin.chavez@email.com');
+
+SELECT * FROM clientes;
+
+-- Procedimiento 2
+CALL ActualizarEstadoCliente(1, 0);
+
+SELECT * FROM clientes;
+
+-- Procedimiento 3
+CALL ContarMascotasPorCliente(1, @total_mascotas);
+
+SELECT @total_mascotas AS TotalMascotas;
+
+-- Procedimiento 4
+CALL ListarServiciosMascota(1);
+
+
+-- Procedimiento 5
+CALL RegistrarServicioMascota(1, 2, CURDATE());
+
+
+-- Procedimiento 6
+CALL EliminarMascota(3);
+
+SELECT * FROM mascotas;
+
+-- Procedimiento 7
+
+CALL ActualizarPrecioServicio(1, 25.50);
+
+SELECT * FROM servicios;
+
+-- Procedimiento 8
+
+CALL ContarServiciosPorMascota(1, @total_servicios);
+
+SELECT @total_servicios AS TotalServicios;
+
+-- Procedimiento 9
+
+CALL IncrementarPrecioServicios(10.00);
+
+SELECT * FROM servicios;
+
+
+-- Procedimiento 10
+
+CALL RepetirRegistroServicio(2, 1, 2);
+
+SELECT * FROM mascota_servicio;
+
+-- Procedimiento 14
+
+CALL ContarClientesActivos(@activos);
+
+SELECT @activos AS TotalClientesActivos;
